@@ -1,0 +1,2010 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The complete study guide to Microsoft's AI business certifications — AB-730 & AB-731">
+      
+      
+        <meta name="author" content="Sébastien Brochet">
+      
+      
+        <link rel="canonical" href="https://aicertifications.sebbrochet.com/02-how-microsoft-copilot-works/">
+      
+      
+        <link rel="prev" href="../01-understanding-generative-ai/">
+      
+      
+        <link rel="next" href="../03-the-art-of-the-prompt/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2. How Microsoft Copilot Works - Copilot to Transformation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-2-how-microsoft-copilot-works" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Copilot to Transformation" class="md-header__button md-logo" aria-label="Copilot to Transformation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Copilot to Transformation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. How Microsoft Copilot Works
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Copilot to Transformation" class="md-nav__button md-logo" aria-label="Copilot to Transformation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Copilot to Transformation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-disclaimer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disclaimer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloads (PDF & EPUB)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part I — Generative AI & Responsible AI foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part I — Generative AI & Responsible AI foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-understanding-generative-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Understanding Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. How Microsoft Copilot Works
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. How Microsoft Copilot Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In 30 seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Key concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-rag-instead-of-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why RAG instead of fine-tuning?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-semantic-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The semantic index
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. How it works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-context-shapes-the-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How context shapes the answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-two-copilots-a-quick-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two Copilots — a quick note
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-how-copilot-keeps-data-private-and-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. How Copilot keeps data private and secure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-in-the-real-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. In the real world
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Exam tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-practice-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Practice questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-the-art-of-the-prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. The Art of the Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-responsible-ai-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Responsible AI in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part II — AB-730 track: Working with Microsoft 365 Copilot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part II — AB-730 track: Working with Microsoft 365 Copilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-copilot-across-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. The Copilot Experience Across Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-creating-and-managing-prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Creating and Managing Prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-managing-conversations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Managing Conversations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-building-and-using-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Building and Using Copilot Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-drafting-business-documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Drafting Business Documents & Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-meetings-collaboration-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Meetings, Collaboration & Copilot Pages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part III — AB-731 track: Leading AI Transformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part III — AB-731 track: Leading AI Transformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-microsoft-ai-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. The Microsoft AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-extending-copilot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Extending Copilot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-microsoft-foundry-and-foundry-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Microsoft Foundry & Foundry Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-building-the-business-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Building the Business Case
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-governance-and-responsible-ai-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Governance & Responsible AI Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-driving-ai-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Driving AI Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part IV — Exam readiness
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part IV — Exam readiness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-ab-730-exam-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. AB-730 Exam Readiness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-ab-731-exam-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. AB-731 Exam Readiness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annexes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Annexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-annexe-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A. Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-annexe-product-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B. Product & feature reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-annexe-objective-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C. Objective-to-chapter map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-annexe-further-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D. Further resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In 30 seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Key concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-rag-instead-of-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why RAG instead of fine-tuning?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-semantic-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The semantic index
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. How it works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-context-shapes-the-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How context shapes the answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-two-copilots-a-quick-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two Copilots — a quick note
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-how-copilot-keeps-data-private-and-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. How Copilot keeps data private and secure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-in-the-real-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. In the real world
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Exam tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-practice-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Practice questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<!-- markdownlint-disable MD041 -->
+<h1 id="chapter-2-how-microsoft-copilot-works">Chapter 2 — How Microsoft Copilot Works<a class="headerlink" href="#chapter-2-how-microsoft-copilot-works" title="Permanent link">&para;</a></h1>
+<p><em>Part I — Generative AI &amp; Responsible AI foundations</em></p>
+<hr />
+<h2 id="in-30-seconds">In 30 seconds<a class="headerlink" href="#in-30-seconds" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The core idea</strong>: Microsoft 365 Copilot combines a large language model with <em>your</em> organization's
+  data. It doesn't answer from the model's memory alone — it <strong>grounds</strong> each prompt in content retrieved
+  through Microsoft Graph, then trims that content to what <em>you</em> are allowed to see.</li>
+<li><strong>Why it matters</strong>: grounding, context, and the security boundary explain both <em>why Copilot is useful</em> and
+  <em>why it won't leak data</em>. Every later chapter builds on this pipeline.</li>
+<li><strong>The exam angle</strong>: expect questions on retrieval-augmented generation (RAG), how context shapes a
+  response, and how permissions and data protection restrict what Copilot can return.</li>
+<li><strong>Remember</strong>: Copilot only surfaces data you already have at least view access to — and your prompts,
+  responses, and Graph data are <strong>not</strong> used to train the foundation models.</li>
+</ul>
+<hr />
+<h2 id="exam-map">Exam map<a class="headerlink" href="#exam-map" title="Permanent link">&para;</a></h2>
+<p><strong>Exam map — AB-730 · Domain 1: Understand generative AI capabilities across Microsoft 365 experiences · AB-731 · Domain 1: grounding, RAG, secure AI</strong></p>
+<hr />
+<h2 id="1-key-concepts">1. Key concepts<a class="headerlink" href="#1-key-concepts" title="Permanent link">&para;</a></h2>
+<p>In Chapter 1 you saw that a large language model predicts plausible text from its training data. That raises
+an obvious problem for business: the model was never trained on <em>your</em> quarterly numbers, <em>your</em> customer
+emails, or <em>last week's</em> project chat. Microsoft 365 Copilot solves this by <strong>grounding</strong> — feeding the
+model relevant, up-to-date, permission-checked content from your tenant at the moment you ask.</p>
+<blockquote>
+<p>📖 <strong>Definition — Grounding</strong>: the process of providing input sources to the LLM related to your prompt,
+so responses are more accurate and contextually relevant. In Microsoft 365 Copilot, grounding data comes
+from Microsoft Graph (your tenant) and, optionally, the web via Bing.</p>
+<p>📖 <strong>Definition — Microsoft Graph</strong>: the gateway to your organization's data in Microsoft 365 — emails,
+chats, meetings, calendar, contacts, and files — plus the relationships between them. It is where Copilot
+retrieves your working content.</p>
+<p>📖 <strong>Definition — Retrieval-augmented generation (RAG)</strong>: an AI pattern that <em>retrieves</em> relevant data
+and adds it to the prompt before the model <em>generates</em> an answer. Copilot's grounding is Microsoft's
+enterprise implementation of RAG.</p>
+</blockquote>
+<h3 id="why-rag-instead-of-fine-tuning">Why RAG instead of fine-tuning?<a class="headerlink" href="#why-rag-instead-of-fine-tuning" title="Permanent link">&para;</a></h3>
+<p>Recall from Chapter 1 that fine-tuning bakes knowledge into a model through extra training. RAG takes the
+opposite approach: leave the pretrained model as-is and <em>supply</em> the knowledge at query time. For business
+data that changes constantly and must respect permissions, RAG wins — it is always current, needs no
+retraining, and can enforce access rules on every request.</p>
+<blockquote>
+<p>📌 <strong>Key concept</strong>: grounding (RAG) is how Copilot uses <em>your</em> data without the cost, staleness, or
+data-exposure risk of training a model on it. This is the single most important idea in the chapter.</p>
+</blockquote>
+<h3 id="the-semantic-index">The semantic index<a class="headerlink" href="#the-semantic-index" title="Permanent link">&para;</a></h3>
+<p>To ground quickly, Copilot relies on the <strong>semantic index</strong> — a map of your Microsoft Graph content built
+with both <em>lexical</em> (keyword) and <em>semantic</em> (meaning-based) indexing. It lets Copilot find conceptually
+relevant material, not just exact keyword matches — and it honors your identity-based access boundary.</p>
+<blockquote>
+<p>📖 <strong>Definition — Semantic index</strong>: a lexical and semantic index of Microsoft Graph data that lets Copilot
+retrieve conceptually relevant content while respecting each user's access permissions.</p>
+</blockquote>
+<hr />
+<h2 id="2-how-it-works">2. How it works<a class="headerlink" href="#2-how-it-works" title="Permanent link">&para;</a></h2>
+<p>Every Copilot request flows through the <strong>orchestrator</strong>, which coordinates grounding, the LLM call, and a
+series of safety and compliance checks.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["1. You enter a prompt&lt;br/&gt;(Word, Teams, Outlook, Chat…)"] --&gt; B["2. Orchestrator pre-processes:&lt;br/&gt;grounding via Microsoft Graph&lt;br/&gt;(+ optional Bing web)"]
+    B --&gt; C["3. Grounded prompt sent to the LLM&lt;br/&gt;(inferencing)"]
+    C --&gt; D["4. Post-processing:&lt;br/&gt;more grounding calls, Responsible AI checks,&lt;br/&gt;security / compliance / privacy checks"]
+    D --&gt; E["5. Response returned to the app&lt;br/&gt;for you to review"]</code></pre>
+<blockquote>
+<p>🔍 <strong>How it works</strong>: the LLM never talks to your data directly. The <strong>orchestrator</strong> retrieves grounding
+content, hands the model a prompt enriched with only what you can access, then post-processes the model's
+output — adding citations, running responsible-AI content classifiers, and applying security, compliance,
+and privacy checks — before you ever see it.</p>
+</blockquote>
+<h3 id="how-context-shapes-the-answer">How context shapes the answer<a class="headerlink" href="#how-context-shapes-the-answer" title="Permanent link">&para;</a></h3>
+<p>"Context" is anything Copilot can legitimately draw on to make the answer relevant. The exam explicitly
+tests that you understand these context sources and their effect:</p>
+<table>
+<thead>
+<tr>
+<th>Context source</th>
+<th>Example</th>
+<th>Effect on the response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The app you're in</strong></td>
+<td>Chatting in Word vs Excel</td>
+<td>Copilot tailors abilities and grounding to that app</td>
+</tr>
+<tr>
+<td><strong>Your work files &amp; content</strong></td>
+<td>An open document, recent emails, a meeting</td>
+<td>Answers are anchored in your actual material</td>
+</tr>
+<tr>
+<td><strong>Web data (optional)</strong></td>
+<td>Web grounding via Bing</td>
+<td>Adds current, public information from the web</td>
+</tr>
+<tr>
+<td><strong>The conversation so far</strong></td>
+<td>Earlier turns in the chat</td>
+<td>Follow-up answers build on prior context</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Tip</strong>: a vague prompt with no useful context produces a generic answer. Point Copilot at the right
+file, email, or meeting — or work inside the relevant app — and the same question yields a far better
+result. (Chapter 3 turns this into a repeatable prompting method.)</p>
+</blockquote>
+<h3 id="the-two-copilots-a-quick-note">The two Copilots — a quick note<a class="headerlink" href="#the-two-copilots-a-quick-note" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>⚠️ <strong>Pitfall</strong>: don't confuse <strong>Microsoft 365 Copilot</strong> (grounded in your Microsoft 365 data via Graph,
+the subject of this chapter) with <strong>GitHub Copilot</strong> (a developer tool grounded in your code in the IDE).
+Both are "Copilot," but they ground in different data for different audiences. This book covers Microsoft
+365 Copilot; GitHub Copilot (exam GH-300) is out of scope.</p>
+</blockquote>
+<hr />
+<h2 id="3-how-copilot-keeps-data-private-and-secure">3. How Copilot keeps data private and secure<a class="headerlink" href="#3-how-copilot-keeps-data-private-and-secure" title="Permanent link">&para;</a></h2>
+<p>This is a heavily tested area on AB-730. Copilot's protections follow a few clear principles:</p>
+<ul>
+<li><strong>Permission-trimmed access.</strong> Copilot only surfaces data the individual user already has <strong>at least view
+  permission</strong> to, using the <em>same</em> Microsoft 365 role-based access controls as the rest of your tenant.
+  The semantic index and Microsoft Graph honor this identity-based access boundary on every request.</li>
+<li><strong>Inside the Microsoft 365 service boundary.</strong> Prompts, retrieved data, and responses are processed
+  within your Microsoft 365 service boundary and are protected by encryption (in transit and at rest),
+  isolation, and your existing compliance controls.</li>
+<li><strong>Not used to train foundation models.</strong> Your prompts, responses, and data accessed through Microsoft
+  Graph are <strong>not</strong> used to train the underlying foundation LLMs.</li>
+<li><strong>Honors data protection.</strong> Content protected by Microsoft Purview — for example, <strong>sensitivity labels</strong>
+  or encryption — retains its protection; Copilot respects the usage rights granted to the user.</li>
+<li><strong>Web queries are handled separately.</strong> If web grounding is enabled, the short query sent to Bing has
+  user and tenant identifiers <strong>removed</strong>, and it isn't used to train foundation models.</li>
+</ul>
+<blockquote>
+<p>📌 <strong>Key concept</strong>: "data protection restricts prompt results." Copilot's answer is <em>bounded by your
+permissions and policies</em>. If you can't open a document, Copilot can't use it to answer you. This is a
+feature, not a limitation — and a favorite exam theme.</p>
+<p>🎯 <strong>Exam tip</strong>: the flip side of permission-trimming is an <em>oversharing</em> risk. If a file was already
+shared too broadly (e.g., "anyone in the org"), Copilot makes it <em>easier to find</em>. The fix is good data
+hygiene and tools like Microsoft Purview — not disabling Copilot. Expect a scenario testing this nuance.</p>
+</blockquote>
+<hr />
+<h2 id="4-in-the-real-world">4. In the real world<a class="headerlink" href="#4-in-the-real-world" title="Permanent link">&para;</a></h2>
+<p><strong>Scenario — "Summarize where we stand with Contoso."</strong> A key account manager types that prompt into
+Microsoft 365 Copilot Chat. Behind the scenes: the orchestrator grounds the prompt through Microsoft Graph,
+pulling the manager's recent Contoso emails, the last two meeting recaps, and a shared proposal in
+SharePoint — but <em>only</em> the items this manager has permission to see. The grounded prompt goes to the LLM,
+which drafts a summary; post-processing adds citations to each source and runs safety and compliance checks.
+The manager gets a cited, permission-safe summary in seconds.</p>
+<p>Change one thing — the manager was never given access to the finance team's private Contoso pricing file —
+and that file simply never enters the grounding set. The answer is built only from what the manager could
+already have opened by hand. Same prompt, different data, because <strong>permissions define the boundary</strong>.</p>
+<hr />
+<h2 id="5-exam-tips">5. Exam tips<a class="headerlink" href="#5-exam-tips" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>🎯 <strong>Exam tip</strong>: if a question asks <em>how Copilot uses your organization's data</em>, the answer involves
+<strong>grounding through Microsoft Graph</strong> (RAG) — not "the model was trained on our data" (it wasn't) and not
+"our data trains the model" (it doesn't).</p>
+<p>🎯 <strong>Exam tip</strong>: "How does Copilot keep data secure?" → it reuses existing Microsoft 365 permissions
+(identity-based access boundary), stays within the service boundary, honors Purview sensitivity labels,
+and doesn't train foundation models on your content.</p>
+<p>🎯 <strong>Exam tip</strong>: when a prompt returns a generic or incomplete answer, the likely cause on the exam is
+<em>missing context or insufficient permissions to the needed content</em> — not a broken model.</p>
+</blockquote>
+<hr />
+<h2 id="6-common-pitfalls">6. Common pitfalls<a class="headerlink" href="#6-common-pitfalls" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>⚠️ <strong>Pitfall</strong>: believing Copilot "knows everything in the company." It only sees what the <em>current user</em>
+can access, retrieved at query time — nothing more.</p>
+</blockquote>
+<ul>
+<li><strong>Confusing training with grounding</strong>: Copilot is <em>grounded</em> on your data per request; it is not
+  <em>trained</em> on it. Your data never becomes model weights.</li>
+<li><strong>Assuming web is always on</strong>: web grounding via Bing is a distinct, optionally enabled path with its own
+  data handling; don't assume every answer uses the web.</li>
+<li><strong>Forgetting context matters</strong>: the same prompt in Excel vs Word, with or without a file attached, yields
+  different results — context is part of the input.</li>
+<li><strong>Treating oversharing as a Copilot flaw</strong>: Copilot exposes pre-existing permission problems faster; the
+  remedy is data governance (Purview), not turning Copilot off.</li>
+</ul>
+<hr />
+<h2 id="7-practice-questions">7. Practice questions<a class="headerlink" href="#7-practice-questions" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> How does Microsoft 365 Copilot use your organization's data to answer a prompt?</p>
+<ul>
+<li>A. The foundation model was pretrained on your tenant's data</li>
+<li>B. Your data is used to fine-tune the model each night</li>
+<li>C. It grounds the prompt by retrieving relevant content through Microsoft Graph at query time (RAG)</li>
+<li>D. It copies your data to Bing and answers from there</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: C.</strong> Copilot uses retrieval-augmented generation — grounding the prompt with content retrieved
+from Microsoft Graph, respecting permissions. A and B are wrong: your data is not used to train or fine-tune
+the foundation models. D misdescribes web grounding, which sends only a short, de-identified query to Bing
+and is optional.</p>
+</details>
+<p><strong>2.</strong> A user asks Copilot to summarize a project, but a critical document is missing from the summary. The
+user cannot open that document directly either. What is the most likely explanation?</p>
+<ul>
+<li>A. Copilot is malfunctioning and should be reinstalled</li>
+<li>B. The user lacks permission to the document, so it isn't included in grounding</li>
+<li>C. The document is too long for the model</li>
+<li>D. Web grounding is disabled</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> Copilot only grounds on content the user has at least view access to. If the user can't open
+the file, it never enters the grounding set. A is unfounded; C isn't indicated; D concerns public web
+content, not an internal document.</p>
+</details>
+<p><strong>3.</strong> Which statement about Copilot and data protection is correct?</p>
+<ul>
+<li>A. Copilot ignores sensitivity labels to be more helpful</li>
+<li>B. Prompts and responses are used to train the foundation LLMs</li>
+<li>C. Copilot honors Microsoft Purview sensitivity labels and existing Microsoft 365 permissions</li>
+<li>D. Copilot can access other tenants' data for better answers</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: C.</strong> Copilot respects Purview protections and the tenant's identity-based access boundary. A and
+D are false and would violate the security model; B is explicitly not the case — your content is not used to
+train foundation models.</p>
+</details>
+<p><strong>4.</strong> Why can the <em>same</em> prompt produce a better answer when the user attaches a relevant file or works
+inside the related app?</p>
+<ul>
+<li>A. Attaching a file retrains the model</li>
+<li>B. Context (the file, the app, recent activity) enriches grounding, making the response more relevant</li>
+<li>C. Files bypass the permission checks</li>
+<li>D. The app changes which foundation model is used for billing</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> Context is part of the input; richer, relevant context improves grounding and therefore the
+answer. A is false (no retraining occurs); C is false (permissions still apply); D is irrelevant to answer
+quality.</p>
+</details>
+<p><strong>5.</strong> An organization worries Copilot will "leak" confidential files to employees who shouldn't see them.
+What is the accurate response?</p>
+<ul>
+<li>A. Copilot can surface any file in the tenant regardless of permissions</li>
+<li>B. Copilot only surfaces content the user already has access to; over-permissioned files are a
+  pre-existing governance issue best addressed with tools like Microsoft Purview</li>
+<li>C. The only fix is to disable Copilot entirely</li>
+<li>D. Copilot encrypts all files so no one can read them</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> Copilot enforces existing permissions; it doesn't grant new access. It can make
+already-overshared content easier to find, so the right remedy is data governance (e.g., Purview), not
+disabling Copilot. A contradicts the security model; C is an overreaction; D is not what happens.</p>
+</details>
+<hr />
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Chapter 1 — Understanding Generative AI</strong>: why grounding (RAG) beats fine-tuning for business data.</li>
+<li><strong>Chapter 3 — The Art of the Prompt</strong>: turning "context matters" into a repeatable prompting method.</li>
+<li><strong>Chapter 4 — Responsible AI in Practice</strong>: the responsible-AI checks in post-processing, plus fabrication
+  and verification.</li>
+<li><strong>Chapter 12 — Extending Copilot</strong>: connecting external data into Microsoft Graph via Copilot connectors.</li>
+</ul>
+<blockquote>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-architecture">Microsoft Copilot architecture and how it works (Microsoft Learn)</a></p>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/microsoft-365/copilot/microsoft-365-copilot-privacy">Data, Privacy, and Security for Microsoft 365 Copilot (Microsoft Learn)</a></p>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/microsoftsearch/semantic-index-for-copilot">Semantic index for Microsoft 365 Copilot (Microsoft Learn)</a></p>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/microsoft-365/copilot/enterprise-data-protection">Enterprise data protection in Microsoft 365 Copilot (Microsoft Learn)</a></p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

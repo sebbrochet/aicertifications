@@ -1,0 +1,1879 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The complete study guide to Microsoft's AI business certifications — AB-730 & AB-731">
+      
+      
+        <meta name="author" content="Sébastien Brochet">
+      
+      
+        <link rel="canonical" href="https://aicertifications.sebbrochet.com/08-building-and-using-agents/">
+      
+      
+        <link rel="prev" href="../07-managing-conversations/">
+      
+      
+        <link rel="next" href="../09-drafting-business-documents/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>8. Building and Using Copilot Agents - Copilot to Transformation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-8-building-and-using-copilot-agents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Copilot to Transformation" class="md-header__button md-logo" aria-label="Copilot to Transformation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Copilot to Transformation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. Building and Using Copilot Agents
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Copilot to Transformation" class="md-nav__button md-logo" aria-label="Copilot to Transformation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Copilot to Transformation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-disclaimer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disclaimer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloads (PDF & EPUB)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part I — Generative AI & Responsible AI foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part I — Generative AI & Responsible AI foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-understanding-generative-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Understanding Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-how-microsoft-copilot-works/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. How Microsoft Copilot Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-the-art-of-the-prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. The Art of the Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-responsible-ai-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Responsible AI in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part II — AB-730 track: Working with Microsoft 365 Copilot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part II — AB-730 track: Working with Microsoft 365 Copilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-copilot-across-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. The Copilot Experience Across Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-creating-and-managing-prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Creating and Managing Prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-managing-conversations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Managing Conversations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Building and Using Copilot Agents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Building and Using Copilot Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In 30 seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Key concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-store-vs-creating-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Store vs creating your own
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-how-it-works-building-and-configuring-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. How it works — building and configuring an agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. How it works — building and configuring an agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sharing-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sharing an agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-in-the-real-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. In the real world
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Exam tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-practice-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Practice questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-drafting-business-documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Drafting Business Documents & Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-meetings-collaboration-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Meetings, Collaboration & Copilot Pages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part III — AB-731 track: Leading AI Transformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part III — AB-731 track: Leading AI Transformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-microsoft-ai-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. The Microsoft AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-extending-copilot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Extending Copilot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-microsoft-foundry-and-foundry-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Microsoft Foundry & Foundry Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-building-the-business-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Building the Business Case
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-governance-and-responsible-ai-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Governance & Responsible AI Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-driving-ai-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Driving AI Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part IV — Exam readiness
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part IV — Exam readiness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-ab-730-exam-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. AB-730 Exam Readiness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-ab-731-exam-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. AB-731 Exam Readiness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annexes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Annexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-annexe-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A. Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-annexe-product-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B. Product & feature reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-annexe-objective-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C. Objective-to-chapter map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-annexe-further-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D. Further resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In 30 seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Key concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-store-vs-creating-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Store vs creating your own
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-how-it-works-building-and-configuring-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. How it works — building and configuring an agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. How it works — building and configuring an agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sharing-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sharing an agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-in-the-real-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. In the real world
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Exam tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-practice-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Practice questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<!-- markdownlint-disable MD041 -->
+<h1 id="chapter-8-building-and-using-copilot-agents">Chapter 8 — Building and Using Copilot Agents<a class="headerlink" href="#chapter-8-building-and-using-copilot-agents" title="Permanent link">&para;</a></h1>
+<p><em>Part II — AB-730 track: Working with Microsoft 365 Copilot</em></p>
+<hr />
+<h2 id="in-30-seconds">In 30 seconds<a class="headerlink" href="#in-30-seconds" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The core idea</strong>: <strong>agents</strong> are purpose-built Copilots. You can get one from the <strong>Agent Store</strong> or build
+  your own from a <strong>template</strong>, give it <strong>knowledge</strong>, configure its <strong>instructions / capabilities /
+  suggested prompts</strong>, and <strong>share</strong> it — all with no code.</li>
+<li><strong>Why it matters</strong>: agents are a large, explicit part of AB-730 Domain 2.</li>
+<li><strong>The exam angle</strong>: expect questions on Agent Store vs building your own, and on each configuration
+  element.</li>
+<li><strong>Remember</strong>: <strong>use an existing agent</strong> when one fits; <strong>build one</strong> when you need specific knowledge and
+  consistent, reusable behavior.</li>
+</ul>
+<hr />
+<h2 id="exam-map">Exam map<a class="headerlink" href="#exam-map" title="Permanent link">&para;</a></h2>
+<p><strong>Exam map — AB-730 · Domain 2: Create and manage Microsoft 365 Copilot agents</strong></p>
+<hr />
+<h2 id="1-key-concepts">1. Key concepts<a class="headerlink" href="#1-key-concepts" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📖 <strong>Definition — Agent</strong>: a customized assistant built on Microsoft 365 Copilot, scoped to a specific job
+with its own instructions, knowledge, and suggested prompts. Agents range from simple Q&amp;A helpers to more
+autonomous task performers.</p>
+<p>📖 <strong>Definition — Agent Store</strong>: the catalog where you find and add ready-made agents — from Microsoft,
+partners, and your own organization — without building anything.</p>
+<p>📖 <strong>Definition — Copilot agent builder</strong>: the no-code tool for creating a <em>declarative</em> agent by
+describing what it should do, giving it knowledge, and configuring its settings.</p>
+</blockquote>
+<h3 id="agent-store-vs-creating-your-own">Agent Store vs creating your own<a class="headerlink" href="#agent-store-vs-creating-your-own" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    A["You have a repeatable need"] --&gt; B{"Does an existing agent&lt;br/&gt;already fit?"}
+    B --&gt;|Yes| C["Use it from the Agent Store"]
+    B --&gt;|No| D["Build your own with a template&lt;br/&gt;(add knowledge + settings)"]
+    D --&gt; E["Share it with your team"]</code></pre>
+<blockquote>
+<p>📌 <strong>Key concept</strong>: don't build what already exists. Check the <strong>Agent Store</strong> first; create a <strong>new</strong>
+agent when your need is specific to <em>your</em> content and process and no existing agent covers it.</p>
+<p>🎯 <strong>Exam tip</strong>: "understand when to use Agent Store versus creating a new agent" is stated verbatim in
+the objectives. Existing/general need → Agent Store. Specific knowledge + consistent behavior + reuse →
+build your own.</p>
+</blockquote>
+<hr />
+<h2 id="2-how-it-works-building-and-configuring-an-agent">2. How it works — building and configuring an agent<a class="headerlink" href="#2-how-it-works-building-and-configuring-an-agent" title="Permanent link">&para;</a></h2>
+<p>You create an agent from a <strong>template</strong> in the agent builder, then configure four things:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What it controls</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Instructions</strong></td>
+<td>How the agent behaves, its tone, its rules</td>
+<td>"Answer HR policy questions; cite the policy; be concise"</td>
+</tr>
+<tr>
+<td><strong>Knowledge</strong></td>
+<td>The sources it grounds on</td>
+<td>A SharePoint site of HR policies</td>
+</tr>
+<tr>
+<td><strong>Capabilities</strong></td>
+<td>Extra abilities you enable</td>
+<td>Web search, image generation, code interpreter</td>
+</tr>
+<tr>
+<td><strong>Suggested prompts</strong></td>
+<td>Starter prompts shown to users</td>
+<td>"How many vacation days do I get?"</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🔍 <strong>How it works</strong>: an agent grounds on the <strong>knowledge</strong> you attach (for example, a SharePoint site),
+respecting each user's permissions — the same boundary as Chapter 2. Its <strong>instructions</strong> shape every
+response so behavior is consistent for everyone who uses it.</p>
+<p>💡 <strong>Tip</strong>: good agent instructions read like a clear job description — what it does, what sources to use,
+what tone, and what it should <em>not</em> do. This is prompt engineering (Chapter 3) applied to configuration.</p>
+</blockquote>
+<h3 id="sharing-an-agent">Sharing an agent<a class="headerlink" href="#sharing-an-agent" title="Permanent link">&para;</a></h3>
+<p>Once built, <strong>share</strong> the agent with teammates so everyone gets the same purpose-built help. As always,
+each user's results stay permission-trimmed to what <em>they</em> can access.</p>
+<blockquote>
+<p>⚠️ <strong>Pitfall</strong>: sharing an agent doesn't grant users access to its knowledge sources they couldn't
+otherwise see. If a teammate lacks permission to the underlying SharePoint site, the agent won't surface
+that content to them.</p>
+</blockquote>
+<hr />
+<h2 id="3-in-the-real-world">3. In the real world<a class="headerlink" href="#3-in-the-real-world" title="Permanent link">&para;</a></h2>
+<p><strong>Scenario — the HR helpdesk agent.</strong> HR is flooded with the same policy questions. Instead of answering
+each one, an HR lead opens the agent builder, starts from a template, writes <strong>instructions</strong> ("answer
+employee questions using our official HR policies, cite the source, stay concise"), attaches the HR policy
+<strong>SharePoint site</strong> as <strong>knowledge</strong>, adds <strong>suggested prompts</strong> ("How do I request parental leave?"), and
+<strong>shares</strong> it with all staff. Employees get instant, consistent, cited answers — and each person only sees
+policies they're allowed to. No code, no new headcount.</p>
+<hr />
+<h2 id="4-exam-tips">4. Exam tips<a class="headerlink" href="#4-exam-tips" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>🎯 <strong>Exam tip</strong>: know the four configuration elements — <strong>instructions, knowledge, capabilities, suggested
+prompts</strong> — and what each does.</p>
+<p>🎯 <strong>Exam tip</strong>: agents are built <strong>without code</strong> (the agent builder is no-code). Answers implying you
+must program an agent are wrong for these business exams.</p>
+<p>🎯 <strong>Exam tip</strong>: an agent's knowledge respects permissions. Sharing an agent shares the <em>assistant</em>, not
+access to its underlying data.</p>
+</blockquote>
+<hr />
+<h2 id="5-common-pitfalls">5. Common pitfalls<a class="headerlink" href="#5-common-pitfalls" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>⚠️ <strong>Pitfall</strong>: building a new agent when a suitable one already exists in the Agent Store — check first.</p>
+</blockquote>
+<ul>
+<li><strong>Vague instructions</strong>: an agent with weak instructions behaves inconsistently; be explicit about scope,
+  sources, and tone.</li>
+<li><strong>Wrong or missing knowledge</strong>: without the right knowledge source, an agent can't ground answers in your
+  content.</li>
+<li><strong>Assuming sharing grants data access</strong>: it doesn't — permissions to knowledge sources still apply.</li>
+<li><strong>Thinking agents require coding</strong>: the agent builder is no-code.</li>
+</ul>
+<hr />
+<h2 id="6-practice-questions">6. Practice questions<a class="headerlink" href="#6-practice-questions" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> A team needs an assistant that answers questions from their internal product documentation,
+consistently, for everyone. No suitable agent exists. What's the best approach?</p>
+<ul>
+<li>A. Tell everyone to use general chat and re-explain context each time</li>
+<li>B. Build a new agent, attach the product docs as knowledge, configure instructions, and share it</li>
+<li>C. Email the documentation to everyone</li>
+<li>D. Fine-tune a custom language model</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> A specific, repeatable, knowledge-scoped need with no existing agent is exactly when to
+build one. A is inefficient; C isn't AI-assisted; D is unnecessary and out of scope (no code / no fine-
+tuning needed).</p>
+</details>
+<p><strong>2.</strong> Which agent setting determines the sources an agent uses to ground its answers?</p>
+<ul>
+<li>A. Suggested prompts</li>
+<li>B. Capabilities</li>
+<li>C. Knowledge</li>
+<li>D. The agent's name</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: C.</strong> Knowledge defines the grounding sources (e.g., a SharePoint site). Suggested prompts are
+starter questions; capabilities add abilities like web search; the name is just a label.</p>
+</details>
+<p><strong>3.</strong> When should you use the Agent Store instead of building your own agent?</p>
+<ul>
+<li>A. Never — always build from scratch</li>
+<li>B. When an existing agent already meets the need</li>
+<li>C. Only when you can write code</li>
+<li>D. Only for personal use</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> If a ready-made agent fits, use it rather than rebuilding. A wastes effort; C and D are
+irrelevant to the choice.</p>
+</details>
+<p><strong>4.</strong> A shared HR agent uses a SharePoint site as its knowledge. A contractor without access to that site
+uses the agent. What happens?</p>
+<ul>
+<li>A. The agent surfaces the restricted content anyway</li>
+<li>B. The agent won't surface content the contractor lacks permission to see</li>
+<li>C. The agent grants the contractor access to the site</li>
+<li>D. The agent stops working for everyone</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> Agents honor each user's permissions; sharing the agent doesn't grant data access. A and C
+violate the security model; D is false.</p>
+</details>
+<p><strong>5.</strong> Which set correctly lists agent configuration options in Microsoft 365 Copilot?</p>
+<ul>
+<li>A. Instructions, knowledge, capabilities, suggested prompts</li>
+<li>B. CPU, memory, disk, network</li>
+<li>C. Fonts, colors, themes, icons</li>
+<li>D. Tokens, weights, layers, epochs</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: A.</strong> Those are the agent-builder settings. B is infrastructure; C is cosmetic; D are
+model-training internals irrelevant to configuring a no-code agent.</p>
+</details>
+<hr />
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Chapter 5 — The Copilot Experience Across Microsoft 365</strong>: chat vs agent, and the use case for your own
+  agent.</li>
+<li><strong>Chapter 3 — The Art of the Prompt</strong>: writing clear instructions (prompt engineering applied to agents).</li>
+<li><strong>Chapter 12 — Extending Copilot</strong>: Copilot Studio and the extensibility framework for more advanced
+  agents (AB-731).</li>
+</ul>
+<blockquote>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/microsoft-365/copilot/extensibility/agent-builder-build-agents">Build agents with Microsoft 365 Copilot (agent builder) (Microsoft Learn)</a></p>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/microsoft-365/copilot/extensibility/overview-business-applications">Agents for Microsoft 365 Copilot overview (Microsoft Learn)</a></p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

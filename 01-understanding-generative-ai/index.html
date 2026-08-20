@@ -1,0 +1,2104 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The complete study guide to Microsoft's AI business certifications — AB-730 & AB-731">
+      
+      
+        <meta name="author" content="Sébastien Brochet">
+      
+      
+        <link rel="canonical" href="https://aicertifications.sebbrochet.com/01-understanding-generative-ai/">
+      
+      
+        <link rel="prev" href="../downloads/">
+      
+      
+        <link rel="next" href="../02-how-microsoft-copilot-works/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Understanding Generative AI - Copilot to Transformation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-understanding-generative-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Copilot to Transformation" class="md-header__button md-logo" aria-label="Copilot to Transformation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Copilot to Transformation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Understanding Generative AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Copilot to Transformation" class="md-nav__button md-logo" aria-label="Copilot to Transformation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Copilot to Transformation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-disclaimer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disclaimer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloads (PDF & EPUB)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part I — Generative AI & Responsible AI foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part I — Generative AI & Responsible AI foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Understanding Generative AI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Understanding Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In 30 seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Key concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-ai-to-generative-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From "AI" to "generative AI"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generative-vs-other-kinds-of-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generative vs other kinds of AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-large-language-models-generate-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How large language models generate text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pretrained-vs-fine-tuned-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pretrained vs fine-tuned models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. How it works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-cost-model-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The cost model: tokens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-on-investment-roi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return on investment (ROI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-machine-learning-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The machine-learning lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-in-the-real-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. In the real world
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Exam tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-practice-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Practice questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-how-microsoft-copilot-works/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. How Microsoft Copilot Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-the-art-of-the-prompt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. The Art of the Prompt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-responsible-ai-in-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Responsible AI in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part II — AB-730 track: Working with Microsoft 365 Copilot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part II — AB-730 track: Working with Microsoft 365 Copilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-copilot-across-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. The Copilot Experience Across Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-creating-and-managing-prompts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Creating and Managing Prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-managing-conversations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Managing Conversations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-building-and-using-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Building and Using Copilot Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-drafting-business-documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Drafting Business Documents & Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-meetings-collaboration-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Meetings, Collaboration & Copilot Pages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part III — AB-731 track: Leading AI Transformation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part III — AB-731 track: Leading AI Transformation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-microsoft-ai-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. The Microsoft AI Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-extending-copilot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Extending Copilot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-microsoft-foundry-and-foundry-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Microsoft Foundry & Foundry Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-building-the-business-case/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Building the Business Case
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-governance-and-responsible-ai-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Governance & Responsible AI Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-driving-ai-adoption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Driving AI Adoption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part IV — Exam readiness
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part IV — Exam readiness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-ab-730-exam-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. AB-730 Exam Readiness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-ab-731-exam-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. AB-731 Exam Readiness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annexes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Annexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-annexe-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A. Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-annexe-product-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B. Product & feature reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-annexe-objective-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C. Objective-to-chapter map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-annexe-further-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D. Further resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#in-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In 30 seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Key concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Key concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-ai-to-generative-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From "AI" to "generative AI"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generative-vs-other-kinds-of-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generative vs other kinds of AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-large-language-models-generate-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How large language models generate text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pretrained-vs-fine-tuned-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pretrained vs fine-tuned models
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. How it works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-cost-model-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The cost model: tokens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-on-investment-roi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return on investment (ROI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-machine-learning-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The machine-learning lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-in-the-real-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. In the real world
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Exam tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-practice-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Practice questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<!-- markdownlint-disable MD041 -->
+<h1 id="chapter-1-understanding-generative-ai">Chapter 1 — Understanding Generative AI<a class="headerlink" href="#chapter-1-understanding-generative-ai" title="Permanent link">&para;</a></h1>
+<p><em>Part I — Generative AI &amp; Responsible AI foundations</em></p>
+<hr />
+<h2 id="in-30-seconds">In 30 seconds<a class="headerlink" href="#in-30-seconds" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The core idea</strong>: generative AI is a class of machine learning that <em>creates</em> new content — text,
+  images, code, audio — by predicting the most likely next piece of a sequence, one token at a time.</li>
+<li><strong>Why it matters</strong>: everything else in this book (Copilot, agents, Foundry, adoption strategy) sits on
+  top of this idea. Both exams assume you can reason about what generative AI is, when it adds value, and
+  how it fails.</li>
+<li><strong>The exam angle</strong>: expect questions on generative vs other AI, pretrained vs fine-tuned models, tokens
+  and cost/ROI, the challenges (fabrications, reliability, bias), and the machine-learning lifecycle.</li>
+<li><strong>Remember</strong>: generative AI is <em>probabilistic</em>, not deterministic. It predicts plausible output — which is
+  exactly why it is powerful <em>and</em> why it can be confidently wrong.</li>
+</ul>
+<hr />
+<h2 id="exam-map">Exam map<a class="headerlink" href="#exam-map" title="Permanent link">&para;</a></h2>
+<p><strong>Exam map — AB-731 · Domain 1: Identify the business value of generative AI solutions (foundational concepts) · AB-730 · Domain 1: Understand generative AI fundamentals</strong></p>
+<hr />
+<h2 id="1-key-concepts">1. Key concepts<a class="headerlink" href="#1-key-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="from-ai-to-generative-ai">From "AI" to "generative AI"<a class="headerlink" href="#from-ai-to-generative-ai" title="Permanent link">&para;</a></h3>
+<p>"AI" is an umbrella term. Underneath it sits <strong>machine learning (ML)</strong> — systems that learn patterns from
+data rather than following hand-written rules — and underneath ML sits <strong>generative AI</strong>. Getting these
+nested relationships straight is the foundation for every capability question on both exams.</p>
+<blockquote>
+<p>📖 <strong>Definition — Artificial intelligence (AI)</strong>: software that performs tasks normally associated with
+human intelligence, such as recognizing images, understanding language, or making recommendations.</p>
+<p>📖 <strong>Definition — Machine learning (ML)</strong>: the branch of AI where a model <em>learns</em> patterns from example
+data instead of being explicitly programmed with rules.</p>
+<p>📖 <strong>Definition — Generative AI</strong>: a category of machine learning that generates <em>new</em> original
+content — natural language, images, code, audio, or video — in response to a prompt.</p>
+</blockquote>
+<p>A useful way to hold it in your head:</p>
+<pre class="mermaid"><code>flowchart TD
+    A["Artificial Intelligence&lt;br/&gt;(the umbrella)"] --&gt; B["Machine Learning&lt;br/&gt;(learns from data)"]
+    B --&gt; C["Deep Learning&lt;br/&gt;(neural networks)"]
+    C --&gt; D["Generative AI&lt;br/&gt;(creates new content)"]
+    A --&gt; E["Rule-based / other AI&lt;br/&gt;(explicit logic, no learning)"]</code></pre>
+<h3 id="generative-vs-other-kinds-of-ai">Generative vs other kinds of AI<a class="headerlink" href="#generative-vs-other-kinds-of-ai" title="Permanent link">&para;</a></h3>
+<p>The distinction the exams care about is <strong>what the model produces</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Type of AI</th>
+<th>What it does</th>
+<th>Typical output</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Generative AI</strong></td>
+<td>Creates new content</td>
+<td>An email draft, an image, code</td>
+<td>"Write a summary of this report"</td>
+</tr>
+<tr>
+<td><strong>Predictive / discriminative ML</strong></td>
+<td>Classifies or forecasts</td>
+<td>A label, a number, a probability</td>
+<td>"Is this transaction fraud?"</td>
+</tr>
+<tr>
+<td><strong>Computer vision</strong></td>
+<td>Interprets images</td>
+<td>Detected objects, extracted text</td>
+<td>"Read the text on this receipt"</td>
+</tr>
+<tr>
+<td><strong>Natural language processing (NLP)</strong></td>
+<td>Extracts meaning from text</td>
+<td>Sentiment, entities, key phrases</td>
+<td>"Is this review positive?"</td>
+</tr>
+<tr>
+<td><strong>Rule-based systems</strong></td>
+<td>Applies fixed logic</td>
+<td>A deterministic decision</td>
+<td>"If order &gt; $1,000, flag it"</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 <strong>Key concept</strong>: predictive models tell you <em>which category</em> or <em>what value</em>; generative models produce
+<em>new artifacts</em>. When a business need is "create/draft/summarize," think generative AI. When it is
+"classify/score/forecast," think traditional ML.</p>
+</blockquote>
+<h3 id="how-large-language-models-generate-text">How large language models generate text<a class="headerlink" href="#how-large-language-models-generate-text" title="Permanent link">&para;</a></h3>
+<p>Generative AI for text is powered by <strong>large language models (LLMs)</strong>. An LLM is trained on very large
+amounts of text and learns the statistical relationships between words. It does not "look up" answers; it
+<strong>predicts the next token</strong> given everything before it, then repeats — token after token — until the
+response is complete.</p>
+<blockquote>
+<p>📖 <strong>Definition — Token</strong>: the unit an LLM reads and generates. A token is a chunk of text — roughly ¾ of
+a word in English (a common rule of thumb is ~4 characters per token). "Understanding" might be one token;
+an unusual word may split into several.</p>
+<p>📖 <strong>Definition — Prompt</strong>: the input (instruction, question, and any supplied context) you give the model
+to steer its output.</p>
+</blockquote>
+<p>Because generation is probabilistic, the same prompt can produce slightly different answers, and the model
+optimizes for <em>plausible</em> text — not verified truth. This single fact explains most of the challenges later
+in the chapter.</p>
+<h3 id="pretrained-vs-fine-tuned-models">Pretrained vs fine-tuned models<a class="headerlink" href="#pretrained-vs-fine-tuned-models" title="Permanent link">&para;</a></h3>
+<p>Two model terms appear repeatedly on AB-731:</p>
+<blockquote>
+<p>📖 <strong>Definition — Pretrained model</strong>: a model already trained on a broad, general-purpose dataset. It
+works "out of the box" for a wide range of tasks. Microsoft 365 Copilot uses large pretrained models.</p>
+<p>📖 <strong>Definition — Fine-tuned model</strong>: a pretrained model further trained on a smaller, domain-specific
+dataset so it performs better on a specialized task (for example, a model tuned on legal contracts).</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pretrained</th>
+<th>Fine-tuned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Training data</td>
+<td>Broad, general</td>
+<td>Additional narrow, domain-specific</td>
+</tr>
+<tr>
+<td>Effort/cost to adopt</td>
+<td>Low — use as-is</td>
+<td>Higher — needs curated data and training</td>
+</tr>
+<tr>
+<td>Best when</td>
+<td>The task is general</td>
+<td>You need consistent, specialized behavior</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>Exam tip</strong>: fine-tuning is <strong>not</strong> the first tool you reach for. For most business needs, a
+pretrained model plus <strong>good prompting</strong> and <strong>grounding</strong> (giving the model your data at query time —
+see Chapter 2) is cheaper and faster than fine-tuning. Fine-tuning is justified when you need repeatable,
+specialized behavior that prompting and grounding can't achieve.</p>
+</blockquote>
+<hr />
+<h2 id="2-how-it-works">2. How it works<a class="headerlink" href="#2-how-it-works" title="Permanent link">&para;</a></h2>
+<h3 id="the-cost-model-tokens">The cost model: tokens<a class="headerlink" href="#the-cost-model-tokens" title="Permanent link">&para;</a></h3>
+<p>Generative AI is metered in <strong>tokens</strong> — both the tokens you send (the prompt, including any context) and
+the tokens the model generates (the response). This is the primary <strong>cost driver</strong> for consumption-based
+services such as models in Microsoft Foundry.</p>
+<blockquote>
+<p>🔍 <strong>How it works</strong>: cost ≈ (input tokens + output tokens) × price per token. Longer prompts, large
+grounding documents, verbose answers, and high request volumes all increase cost. A bigger or more
+capable model usually costs more per token than a smaller one.</p>
+<p>🎯 <strong>Exam tip</strong>: Microsoft 365 Copilot is licensed <strong>per user per month</strong> (a flat subscription), so an
+individual user does not pay per token. Consumption/<strong>pay-as-you-go</strong> token pricing is the mental model
+for <strong>Foundry Tools</strong> and the models you build on. Keep these two commercial models separate — licensing
+is covered in Chapter 14.</p>
+</blockquote>
+<h3 id="return-on-investment-roi">Return on investment (ROI)<a class="headerlink" href="#return-on-investment-roi" title="Permanent link">&para;</a></h3>
+<p>Cost is only half the equation. <strong>ROI</strong> weighs the value created (time saved, faster cycles, higher quality,
+new capabilities) against the total cost (licenses or token consumption, plus adoption and governance
+effort). A leader evaluating generative AI asks not "what does it cost?" but "what is the <em>net</em> value?"</p>
+<div class="arithmatex">\[\text{ROI} = \frac{V - C}{C}\]</div>
+<p>where <strong>V</strong> is the business value created (time saved, quality, new capability) and <strong>C</strong> is the total cost.</p>
+<blockquote>
+<p>📌 <strong>Key concept</strong>: generative AI creates business value primarily through <strong>scale</strong> and <strong>automation</strong> —
+doing repetitive knowledge work (drafting, summarizing, searching, analyzing) faster and consistently
+across many people at once. The value grows with the number of users and the frequency of the task.</p>
+</blockquote>
+<h3 id="the-machine-learning-lifecycle">The machine-learning lifecycle<a class="headerlink" href="#the-machine-learning-lifecycle" title="Permanent link">&para;</a></h3>
+<p>Traditional ML (and any custom AI solution a leader might sponsor) follows a repeatable lifecycle. AB-731
+expects you to recognize its stages and that it is <strong>iterative</strong>, not one-and-done.</p>
+<pre class="mermaid"><code>flowchart LR
+    A["1. Define the&lt;br/&gt;business problem"] --&gt; B["2. Collect &amp;&lt;br/&gt;prepare data"]
+    B --&gt; C["3. Train the&lt;br/&gt;model"]
+    C --&gt; D["4. Evaluate"]
+    D --&gt; E["5. Deploy"]
+    E --&gt; F["6. Monitor &amp;&lt;br/&gt;maintain"]
+    F --&gt;|feedback / drift| B</code></pre>
+<blockquote>
+<p>🔍 <strong>How it works</strong>: the loop matters. Data quality shapes model quality, real-world performance drifts
+over time, and monitoring feeds the next round of improvement. "Deploy" is a milestone, not the finish
+line.</p>
+<p>🎯 <strong>Exam tip</strong>: know <em>when machine learning adds value</em> — when you have <strong>enough representative
+historical data</strong> and a <strong>repeatable pattern to learn</strong> (predicting churn, forecasting demand, detecting
+anomalies). If a simple rule or lookup solves the problem, you don't need ML at all.</p>
+</blockquote>
+<hr />
+<h2 id="3-in-the-real-world">3. In the real world<a class="headerlink" href="#3-in-the-real-world" title="Permanent link">&para;</a></h2>
+<p><strong>Scenario — a customer-service team drowning in email.</strong> A retailer receives thousands of support emails a
+week. Two different AI approaches solve two different problems:</p>
+<ul>
+<li><strong>Predictive ML</strong> classifies each incoming email by topic and urgency and routes it — a <em>classification</em>
+  task, trained on historical tickets. Output: a label.</li>
+<li><strong>Generative AI</strong> drafts a tailored reply for an agent to review, summarizes long threads, and turns
+  resolved cases into knowledge-base articles — <em>content-creation</em> tasks. Output: new text.</li>
+</ul>
+<p>The team combines them: ML sorts and prioritizes; generative AI (via Microsoft 365 Copilot) drafts and
+summarizes. The <strong>value</strong> is scale — every agent handles more cases with consistent quality. The <strong>cost</strong> to
+weigh is the Copilot licenses plus the change-management effort to get agents reviewing (not blindly
+sending) AI drafts. The <strong>risk</strong> to manage is a confidently wrong draft reaching a customer — which is why a
+human stays in the loop.</p>
+<hr />
+<h2 id="4-exam-tips">4. Exam tips<a class="headerlink" href="#4-exam-tips" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>🎯 <strong>Exam tip</strong>: match the <em>verb</em> in the question to the AI type. "Generate, draft, summarize, create" →
+generative AI. "Classify, predict, score, forecast, detect" → predictive/traditional ML.</p>
+<p>🎯 <strong>Exam tip</strong>: "select a generative AI solution to meet a business need" questions reward the <em>simplest</em>
+option that works. Prefer a pretrained model with good prompting/grounding over fine-tuning or a
+custom-built model unless the scenario clearly requires specialized, repeatable behavior.</p>
+<p>🎯 <strong>Exam tip</strong>: expect at least one token/cost question. Remember: tokens count <strong>both</strong> input and
+output; longer context and verbose responses cost more; Microsoft 365 Copilot is a per-user subscription
+while Foundry models are typically consumption-based.</p>
+</blockquote>
+<hr />
+<h2 id="5-common-pitfalls">5. Common pitfalls<a class="headerlink" href="#5-common-pitfalls" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>⚠️ <strong>Pitfall</strong>: treating generative AI output as fact. LLMs optimize for <em>plausible</em>, not <em>true</em>. A fluent,
+confident answer can still be fabricated — always verify (Chapter 4).</p>
+</blockquote>
+<ul>
+<li><strong>Confusing generative with predictive AI</strong>: a churn-prediction or fraud-detection scenario is <em>not</em> a
+  generative AI use case, even though both are "AI."</li>
+<li><strong>Assuming fine-tuning is always better</strong>: it adds cost and data burden; it is a last resort, not a
+  default.</li>
+<li><strong>Forgetting output tokens in cost</strong>: people estimate cost from the prompt alone and ignore that the
+  generated response is also billed.</li>
+<li><strong>Thinking training is a one-time event</strong>: the ML lifecycle is a loop — models drift and need monitoring
+  and retraining.</li>
+<li><strong>Believing more data always helps</strong>: <em>representative, good-quality</em> data helps; more biased or irrelevant
+  data does not (see Chapter 4 on data quality and bias).</li>
+</ul>
+<hr />
+<h2 id="6-practice-questions">6. Practice questions<a class="headerlink" href="#6-practice-questions" title="Permanent link">&para;</a></h2>
+<p><strong>1.</strong> A bank wants a system that flags potentially fraudulent transactions in real time. Which type of AI
+best fits this need?</p>
+<ul>
+<li>A. Generative AI, because it can create new fraud scenarios</li>
+<li>B. Predictive (discriminative) machine learning, because it classifies transactions</li>
+<li>C. A large language model, because it understands natural language</li>
+<li>D. A rule-based system is the only valid option</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> Flagging transactions as fraud/not-fraud is a <em>classification</em> task — predictive ML trained
+on historical data. A is wrong: the goal is to categorize, not to create content. C is wrong: an LLM is
+unnecessary for numeric transaction features. D is too absolute — simple rules can help, but a learned model
+generalizes better to new fraud patterns.</p>
+</details>
+<p><strong>2.</strong> Which statement about tokens is correct?</p>
+<ul>
+<li>A. Only the words you type in the prompt count as tokens</li>
+<li>B. Tokens measure only the model's response length</li>
+<li>C. Both the input (prompt and context) and the generated output are counted in tokens</li>
+<li>D. A token is always exactly one word</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: C.</strong> Consumption is based on input <strong>and</strong> output tokens. A and B each ignore half of the cost. D
+is wrong — a token is roughly ¾ of an English word and long or rare words can split into multiple tokens.</p>
+</details>
+<p><strong>3.</strong> A company needs Copilot to draft general business emails and summaries for all employees. What is the
+most appropriate and cost-effective approach?</p>
+<ul>
+<li>A. Fine-tune a custom model on the company's entire email history first</li>
+<li>B. Use a pretrained model with clear prompts (and grounding in the user's own content)</li>
+<li>C. Build a new model from scratch for the company</li>
+<li>D. Use a rule-based template engine</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> General drafting is exactly what large pretrained models (as used by Microsoft 365 Copilot)
+do well; effective prompting and grounding meet the need without the cost of fine-tuning. A and C add large
+cost and data burden for no clear benefit. D can't produce flexible, context-aware prose.</p>
+</details>
+<p><strong>4.</strong> Which scenario indicates that a machine-learning solution would add value?</p>
+<ul>
+<li>A. A one-off calculation that a spreadsheet formula already solves</li>
+<li>B. Forecasting next quarter's demand from several years of representative sales data</li>
+<li>C. Applying a fixed "if amount &gt; $1,000, require approval" policy</li>
+<li>D. Displaying today's date on a dashboard</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> ML adds value when there is a repeatable pattern to learn and enough representative
+historical data. A, C, and D are deterministic tasks solved by a formula or a fixed rule — no learning
+required.</p>
+</details>
+<p><strong>5.</strong> Why can generative AI produce a confidently worded answer that is factually wrong?</p>
+<ul>
+<li>A. Because it always retrieves answers from a verified database</li>
+<li>B. Because it predicts statistically plausible text rather than verifying truth</li>
+<li>C. Because fine-tuning removes all errors</li>
+<li>D. Because it is a deterministic, rule-based system</li>
+</ul>
+<details>
+<summary>Answer</summary>
+<p><strong>Correct: B.</strong> Generation optimizes for plausibility token-by-token, so fluent output is not guaranteed to
+be accurate. A is wrong — a base model generates, it doesn't look up verified facts (unless grounded). C
+overstates fine-tuning. D contradicts how LLMs work — they are probabilistic, not rule-based.</p>
+</details>
+<hr />
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Chapter 2 — How Microsoft Copilot Works</strong>: grounding and retrieval-augmented generation, the cheaper
+  alternative to fine-tuning for using your own data.</li>
+<li><strong>Chapter 4 — Responsible AI in Practice</strong>: fabrications, bias, reliability, and data quality in depth.</li>
+<li><strong>Chapter 14 — Building the Business Case</strong>: cost drivers, ROI, and licensing vs consumption pricing.</li>
+</ul>
+<blockquote>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/training/modules/fundamentals-generative-ai/">Fundamentals of Generative AI (Microsoft Learn training)</a></p>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/azure/ai-foundry/openai/overview">What is generative AI? (Microsoft Learn)</a></p>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/credentials/certifications/resources/study-guides/ab-730">Study guide for Exam AB-730: AI Business Professional</a></p>
+<p>🔗 <strong>Source</strong>: <a href="https://learn.microsoft.com/credentials/certifications/resources/study-guides/ab-731">Study guide for Exam AB-731: AI Transformation Leader</a></p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.indexes", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
