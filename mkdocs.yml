@@ -1,0 +1,100 @@
+site_name: "Copilot to Transformation"
+site_description: "The complete study guide to Microsoft's AI business certifications — AB-730 & AB-731"
+site_author: "Sébastien Brochet"
+site_url: "https://aicertifications.sebbrochet.com/"
+
+# Chapters are the single source of truth: MkDocs reads chapters/ directly.
+docs_dir: chapters
+site_dir: site
+
+# The template is not a page of the book.
+exclude_docs: |
+  _chapter-template.md
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search:
+      lang: en
+
+nav:
+  - Introduction: index.md
+  - Disclaimer: 00-disclaimer.md
+  - Downloads (PDF & EPUB): downloads.md
+  - "Part I — Generative AI & Responsible AI foundations":
+      - "1. Understanding Generative AI": 01-understanding-generative-ai.md
+      - "2. How Microsoft Copilot Works": 02-how-microsoft-copilot-works.md
+      - "3. The Art of the Prompt": 03-the-art-of-the-prompt.md
+      - "4. Responsible AI in Practice": 04-responsible-ai-in-practice.md
+  - "Part II — AB-730 track: Working with Microsoft 365 Copilot":
+      - "5. The Copilot Experience Across Microsoft 365": 05-copilot-across-microsoft-365.md
+      - "6. Creating and Managing Prompts": 06-creating-and-managing-prompts.md
+      - "7. Managing Conversations": 07-managing-conversations.md
+      - "8. Building and Using Copilot Agents": 08-building-and-using-agents.md
+      - "9. Drafting Business Documents & Communications": 09-drafting-business-documents.md
+      - "10. Meetings, Collaboration & Copilot Pages": 10-meetings-collaboration-pages.md
+  - "Part III — AB-731 track: Leading AI Transformation":
+      - "11. The Microsoft AI Portfolio": 11-microsoft-ai-portfolio.md
+      - "12. Extending Copilot": 12-extending-copilot.md
+      - "13. Microsoft Foundry & Foundry Tools": 13-microsoft-foundry-and-foundry-tools.md
+      - "14. Building the Business Case": 14-building-the-business-case.md
+      - "15. Governance & Responsible AI Strategy": 15-governance-and-responsible-ai-strategy.md
+      - "16. Driving AI Adoption": 16-driving-ai-adoption.md
+  - "Part IV — Exam readiness":
+      - "17. AB-730 Exam Readiness": 17-ab-730-exam-readiness.md
+      - "18. AB-731 Exam Readiness": 18-ab-731-exam-readiness.md
+  - Annexes:
+      - "A. Glossary": 19-annexe-glossary.md
+      - "B. Product & feature reference": 20-annexe-product-reference.md
+      - "C. Objective-to-chapter map": 21-annexe-objective-map.md
+      - "D. Further resources": 22-annexe-further-resources.md
