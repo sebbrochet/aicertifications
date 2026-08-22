@@ -1,6 +1,8 @@
 <!-- markdownlint-disable MD041 -->
 # Introduction
 
+![Copilot to Transformation — book cover](assets/cover-web.jpg){ align=right width=240 loading=lazy }
+
 Microsoft has introduced two certifications for the people who will define how organizations actually use
 artificial intelligence — not the engineers who build models, but the professionals who put AI to work and
 the leaders who guide its adoption. This book prepares you for both:
