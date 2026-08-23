@@ -1,0 +1,55 @@
+/* kindle.css — callout box styling for the Kindle (AZW3) edition.
+   Kept to the KF8 CSS subset: left border, light background shading, and an inline icon.
+   Emoji are removed by the Lua filter and replaced with these boxes + icons, so nothing
+   depends on emoji glyphs the Kindle reading font lacks. */
+
+.callout {
+  border-left: 4px solid #444444;
+  background-color: #f0eee9;
+  margin: 0.85em 0;
+  padding: 0.45em 0.7em;
+}
+
+.callout > p {
+  margin: 0.2em 0;
+}
+
+/* Inline icon sits on the first line, next to the bold label. */
+.callout-icon {
+  height: 1em;
+  width: auto;
+  vertical-align: -0.12em;
+  margin-right: 0.3em;
+}
+
+/* Per-type left rule (grayscale on e-ink; Pitfall is heavier to stand out). */
+.callout-key  { border-left-color: #333333; }
+.callout-how  { border-left-color: #555555; }
+.callout-tip  { border-left-color: #222222; }
+.callout-warn { border-left-color: #000000; border-left-width: 6px; }
+.callout-hint { border-left-color: #555555; }
+.callout-def  { border-left-color: #555555; }
+.callout-src  { border-left-color: #777777; }
+.callout-good { border-left-color: #444444; }
+.callout-say  { border-left-color: #555555; }
+.callout-sci  { border-left-color: #555555; }
+
+/* Display math fallback (Kindle can't render MathML — the Lua filter emits plain text). */
+.kmath {
+  display: block;
+  text-align: center;
+  font-style: italic;
+  margin: 0.7em 0;
+}
+
+/* Practice-question answers: always visible on Kindle (the <details> collapsible can't expand). */
+.answer {
+  border: 1px solid #999999;
+  background-color: #f5f4f0;
+  margin: 0.6em 0;
+  padding: 0.4em 0.7em;
+}
+
+.answer > p:first-child {
+  margin-top: 0;
+}

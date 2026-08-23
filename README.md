@@ -2,12 +2,12 @@
 
 **The complete, exam-focused study guide for Microsoft's AI business certifications — [AB-730 (AI Business Professional)](https://learn.microsoft.com/credentials/certifications/resources/study-guides/ab-730) and [AB-731 (AI Transformation Leader)](https://learn.microsoft.com/credentials/certifications/resources/study-guides/ab-731).**
 
-Business-focused, grounded in official Microsoft Learn documentation, and built for both understanding and exam readiness — no coding required. Read it on the web, or download the EPUB/PDF.
+Business-focused, grounded in official Microsoft Learn documentation, and built for both understanding and exam readiness — no coding required. Read it on the web, or download the PDF, EPUB, or Kindle (AZW3) edition.
 
 [![Build & deploy](https://github.com/sebbrochet/aicertifications/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/sebbrochet/aicertifications/actions/workflows/build-and-deploy.yml)
 
 - 🌐 **Read online:** <https://aicertifications.sebbrochet.com/>
-- 📥 **Download (PDF & EPUB):** <https://aicertifications.sebbrochet.com/downloads/>
+- 📥 **Download (PDF, EPUB & Kindle AZW3):** <https://aicertifications.sebbrochet.com/downloads/>
 
 ---
 
@@ -28,9 +28,9 @@ Every chapter follows a consistent anatomy (in 30 seconds → exam map → key c
 ```text
 chapters/         Book content (Markdown) — the single source of truth
 chapters/assets/  Cover (high-res master + web/OG derivatives) and favicons — served by MkDocs; master cover embedded in EPUB/PDF
-build/            Pandoc export chain (EPUB/PDF), cover generator, Mermaid/LaTeX config
+build/            Pandoc export chain (EPUB/PDF) + Calibre AZW3 (Kindle), cover generator, Mermaid/LaTeX config
 overrides/        MkDocs Material theme overrides (extra favicon links)
-.github/          CI: build EPUB/PDF + deploy the site to GitHub Pages
+.github/          CI: build EPUB/PDF/AZW3 + deploy the site to GitHub Pages
 mkdocs.yml        MkDocs Material configuration (web edition)
 ```
 
@@ -46,24 +46,24 @@ python -m venv .venv
 
 Then open <http://127.0.0.1:8000>.
 
-**EPUB/PDF (Pandoc):** produced automatically by CI (see below). To generate them locally for previewing the two downloadable formats, run the one-command wrapper on a machine where Pandoc, `mermaid-cli`, and a LaTeX engine (XeLaTeX) are installed:
+**EPUB/PDF/AZW3 (Pandoc + Calibre):** produced automatically by CI (see below). To generate them locally for previewing the downloadable formats, run the one-command wrapper on a machine where Pandoc, `mermaid-cli`, a LaTeX engine (XeLaTeX), and — for the Kindle AZW3 — Calibre are installed:
 
 ```powershell
-.\build\build-local.ps1          # EPUB + PDF -> output/ (reuses the existing cover)
-.\build\build-local.ps1 -Open    # ...and open both files when done
+.\build\build-local.ps1          # EPUB + PDF + Kindle AZW3 -> output/ (reuses the existing cover)
+.\build\build-local.ps1 -Open    # ...and open the files when done
 ```
 
-The deliverables land in the top-level `output/` folder (git-ignored). The build **reuses** the existing `chapters/assets/cover.png` — it is never regenerated unless you pass `-RegenerateCover` (which rebuilds a basic GDI+ placeholder). To rebuild only one format, use `-EpubOnly` / `-PdfOnly`.
+The deliverables land in the top-level `output/` folder (git-ignored). The build **reuses** the existing `chapters/assets/cover.png` — it is never regenerated unless you pass `-RegenerateCover` (which rebuilds a basic GDI+ placeholder). To rebuild only one format, use `-EpubOnly` / `-PdfOnly`; pass `-NoKindle` to skip the AZW3. The Kindle edition replaces emoji callouts with bordered boxes and monochrome icons so they render cleanly on Kindle's fonts.
 
 ## How it's published
 
 A single GitHub Actions workflow ([`.github/workflows/build-and-deploy.yml`](.github/workflows/build-and-deploy.yml)) runs on every push to `main`:
 
 1. **validate-site** — strict `mkdocs build`.
-2. **build-ebook** — Pandoc/XeLaTeX/mermaid produce the EPUB and PDF.
+2. **build-ebook** — Pandoc/XeLaTeX/mermaid produce the EPUB and PDF; Calibre produces the Kindle AZW3.
 3. **deploy** — the freshly built files are dropped into the site and published, with the web edition, to the `gh-pages` branch.
 
-The published site always links to the **latest** EPUB/PDF. No files are committed to `main`; there are no per-version releases.
+The published site always links to the **latest** PDF/EPUB/AZW3. No files are committed to `main`; there are no per-version releases.
 
 > **GitHub setup:** Settings → Pages → Build and deployment → Source = *Deploy from a branch*, Branch = `gh-pages` / root.
 

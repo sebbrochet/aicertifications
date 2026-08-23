@@ -20,7 +20,8 @@
 param(
     [switch]$PdfOnly,
     [switch]$EpubOnly,
-    [switch]$NoDiagrams
+    [switch]$NoDiagrams,
+    [switch]$NoKindle
 )
 
 $buildDir    = $PSScriptRoot
@@ -69,6 +70,9 @@ $commonArgs = @(
     "--metadata=date:$date"
     "--metadata=lang:$lang"
     "--file-scope"
+    # Collapsible <details> answers can't be expanded on e-readers (Kindle just opens the
+    # dictionary), so every offline build shows the answers inline instead.
+    "--lua-filter=$(Join-Path $buildDir 'answers-inline.lua')"
 )
 
 # ============================================================
@@ -89,11 +93,36 @@ function Remove-Emoji {
 }
 
 # ============================================================
-# Working manuscripts (EPUB: emoji kept; PDF: emoji stripped)
+# Flip horizontal Mermaid flowcharts to vertical for the Kindle edition.
+# On a narrow Kindle screen a left-to-right (LR/RL) flowchart is scaled down to
+# fit the width until its text is unreadable; a top-to-bottom (TB) layout stays
+# legible. Only the flow direction is rewritten — node text and edges are untouched —
+# and only for the Kindle manuscript (phones/tablets reading the EPUB keep the wider layout).
 # ============================================================
-$epubManuscript = Join-Path $output 'epub-manuscript'
-$pdfManuscript  = Join-Path $output 'pdf-manuscript'
-foreach ($d in @($epubManuscript, $pdfManuscript)) {
+function ConvertTo-VerticalMermaid {
+    param([string]$Content)
+    return [regex]::Replace($Content, '(?ms)(```mermaid\r?\n)(.*?)(```)', {
+        param($m)
+        $body = $m.Groups[2].Value
+        $body = [regex]::Replace($body, '(?im)^(\s*(?:flowchart|graph))[ \t]+(?:LR|RL)\b', '$1 TB')
+        $body = [regex]::Replace($body, '(?im)^(\s*direction)[ \t]+(?:LR|RL)\b', '$1 TB')
+        return $m.Groups[1].Value + $body + $m.Groups[3].Value
+    })
+}
+
+# Whether the Kindle (AZW3) edition will be built this run — it needs its own manuscript
+# (vertical diagrams + emoji-to-icon callouts) rendered separately from the EPUB.
+$buildKindle = (-not $PdfOnly -and -not $EpubOnly -and -not $NoKindle)
+
+# ============================================================
+# Working manuscripts (EPUB: emoji kept; PDF: emoji stripped; Kindle: vertical diagrams)
+# ============================================================
+$epubManuscript   = Join-Path $output 'epub-manuscript'
+$pdfManuscript    = Join-Path $output 'pdf-manuscript'
+$kindleManuscript = Join-Path $output 'kindle-manuscript'
+$manuscriptDirs = @($epubManuscript, $pdfManuscript)
+if ($buildKindle) { $manuscriptDirs += $kindleManuscript }
+foreach ($d in $manuscriptDirs) {
     if (-not (Test-Path $d)) { New-Item -ItemType Directory -Path $d -Force | Out-Null }
 }
 
@@ -107,6 +136,10 @@ foreach ($file in $bookFiles) {
     $raw = [regex]::Replace($raw, '(?m)^[ \t]*!\[[^\]]*\]\(assets/cover[^)]*\.(?:png|jpg)\)[^\r\n]*\r?\n?', '')
     Set-Content -Path (Join-Path $epubManuscript $leaf) -Value $raw -Encoding UTF8 -NoNewline
     Set-Content -Path (Join-Path $pdfManuscript  $leaf) -Value (Remove-Emoji $raw) -Encoding UTF8 -NoNewline
+    if ($buildKindle) {
+        # Kindle keeps emoji (converted to icons later) but flips horizontal diagrams to vertical.
+        Set-Content -Path (Join-Path $kindleManuscript $leaf) -Value (ConvertTo-VerticalMermaid $raw) -Encoding UTF8 -NoNewline
+    }
 }
 
 # ============================================================
@@ -117,7 +150,9 @@ foreach ($file in $bookFiles) {
 # a headless Chromium per diagram, so the cold run is slow; cached runs are near-instant.
 $diagramCache = Join-Path $buildDir '.diagram-cache'
 if (-not (Test-Path $diagramCache)) { New-Item -ItemType Directory -Path $diagramCache -Force | Out-Null }
-foreach ($d in @((Join-Path $epubManuscript 'diagrams'), (Join-Path $pdfManuscript 'diagrams'))) {
+$diagramDirs = @((Join-Path $epubManuscript 'diagrams'), (Join-Path $pdfManuscript 'diagrams'))
+if ($buildKindle) { $diagramDirs += (Join-Path $kindleManuscript 'diagrams') }
+foreach ($d in $diagramDirs) {
     if (-not (Test-Path $d)) { New-Item -ItemType Directory -Path $d -Force | Out-Null }
 }
 
@@ -138,7 +173,10 @@ if ($NoDiagrams) {
     Write-Host "  Rendering Mermaid diagrams..." -ForegroundColor Gray
     $toRender = @()
     $total = 0
-    foreach ($mdFile in (Get-ChildItem $epubManuscript -Filter '*.md')) {
+    $scanDirs = @($epubManuscript)
+    if ($buildKindle) { $scanDirs += $kindleManuscript }   # Kindle's vertical diagrams hash differently
+    foreach ($scanDir in $scanDirs) {
+    foreach ($mdFile in (Get-ChildItem $scanDir -Filter '*.md')) {
         $content = Get-Content $mdFile.FullName -Raw -Encoding UTF8
         $blocks  = [regex]::Matches($content, $mermaidPattern)
         if ($blocks.Count -eq 0) { continue }
@@ -149,12 +187,13 @@ if ($NoDiagrams) {
             $hash = Get-DiagHash $b.Groups[1].Value
             $png  = Join-Path $diagramCache "$base-diagram-$i-$hash.png"
             if (-not (Test-Path $png)) {
-                $mmd = Join-Path $diagramCache "$base-diagram-$i.mmd"
+                $mmd = Join-Path $diagramCache "$base-diagram-$i-$hash.mmd"
                 Set-Content -Path $mmd -Value $b.Groups[1].Value -Encoding UTF8 -NoNewline
                 $toRender += @{ Mmd = $mmd; Png = $png }
             }
             $total++
         }
+    }
     }
     if ($toRender.Count -gt 0) {
         Write-Host "    $($toRender.Count) new diagram(s) ($($total - $toRender.Count) cached)..." -ForegroundColor Gray
@@ -175,8 +214,10 @@ if ($NoDiagrams) {
             }
         }
     }
-    # Replace mermaid blocks with images in both manuscripts
-    foreach ($manu in @($epubManuscript, $pdfManuscript)) {
+    # Replace mermaid blocks with images in every manuscript
+    $replaceDirs = @($epubManuscript, $pdfManuscript)
+    if ($buildKindle) { $replaceDirs += $kindleManuscript }
+    foreach ($manu in $replaceDirs) {
         $diagOut = Join-Path $manu 'diagrams'
         foreach ($mdFile in (Get-ChildItem $manu -Filter '*.md')) {
             $content = Get-Content $mdFile.FullName -Raw -Encoding UTF8
@@ -206,6 +247,7 @@ if ($NoDiagrams) {
 
 $epubBookFiles = $bookFiles | ForEach-Object { Join-Path $epubManuscript (Split-Path $_ -Leaf) }
 $pdfBookFiles  = $bookFiles | ForEach-Object { Join-Path $pdfManuscript  (Split-Path $_ -Leaf) }
+$kindleBookFiles = $bookFiles | ForEach-Object { Join-Path $kindleManuscript (Split-Path $_ -Leaf) }
 
 # ============================================================
 # EPUB
@@ -291,6 +333,53 @@ if (-not $EpubOnly) {
             Write-Host "  [OK] PDF built: $pdfOut ($sz MB)" -ForegroundColor Green
         } else {
             Write-Host "  [FAIL] PDF build (see LaTeX errors above)" -ForegroundColor Red
+        }
+    }
+}
+
+# ============================================================
+# Kindle (AZW3) — emoji callouts replaced with styled icon boxes, converted via Calibre.
+# The Kindle reading font has no emoji glyphs, so a Lua filter swaps each emoji callout for a
+# bordered box + monochrome icon; Calibre's ebook-convert then produces a native AZW3.
+# ============================================================
+if (-not $PdfOnly -and -not $EpubOnly -and -not $NoKindle) {
+    Write-Host ""
+    Write-Host "--- Building Kindle (AZW3) ---" -ForegroundColor Yellow
+    $ebookConvert = Get-Command ebook-convert -ErrorAction SilentlyContinue
+    if (-not $ebookConvert) {
+        Write-Host "  [SKIP] Calibre 'ebook-convert' not found — install Calibre to build the AZW3." -ForegroundColor Yellow
+    } else {
+        # Make the callout icons available to Pandoc (resolved via --resource-path).
+        $iconsSrc = Join-Path $buildDir 'kindle-icons'
+        $iconsDst = Join-Path $kindleManuscript 'kindle-icons'
+        if (Test-Path $iconsSrc) {
+            if (-not (Test-Path $iconsDst)) { New-Item -ItemType Directory -Path $iconsDst -Force | Out-Null }
+            Copy-Item (Join-Path $iconsSrc '*.png') $iconsDst -Force
+        }
+        $kindleEpub = Join-Path $output 'Copilot-to-Transformation-kindle.epub'
+        $lua = Join-Path $buildDir 'kindle-callouts.lua'
+        $stripLua = Join-Path $buildDir 'kindle-strip-emoji.lua'
+        $css = Join-Path $buildDir 'kindle.css'
+        $kArgs = @('-o', $kindleEpub, '--split-level=1', '--mathml', "--resource-path=$kindleManuscript",
+                   "--lua-filter=$lua", "--lua-filter=$stripLua", "--css=$css")
+        $kCover = Join-Path $assetsDir 'cover.png'
+        if (Test-Path $kCover) { $kArgs += "--epub-cover-image=$kCover" }
+        $kArgs += $commonArgs + $kindleBookFiles
+        & pandoc @kArgs 2>&1 | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
+        if (Test-Path $kindleEpub) {
+            $azw3 = Join-Path $output 'Copilot-to-Transformation.azw3'
+            Write-Host "  Converting EPUB → AZW3 (Calibre, may take a minute)..." -ForegroundColor Gray
+            & ebook-convert $kindleEpub $azw3 --output-profile kindle_pw 2>&1 |
+                Select-String -Pattern 'AZW3 output|Output saved|Rendering|Merging' |
+                ForEach-Object { Write-Host "  $_" -ForegroundColor DarkGray }
+            if (Test-Path $azw3) {
+                $sz = [math]::Round((Get-Item $azw3).Length / 1MB, 2)
+                Write-Host "  [OK] AZW3 built: $azw3 ($sz MB)" -ForegroundColor Green
+            } else {
+                Write-Host "  [FAIL] AZW3 conversion" -ForegroundColor Red
+            }
+        } else {
+            Write-Host "  [FAIL] Kindle EPUB build" -ForegroundColor Red
         }
     }
 }
